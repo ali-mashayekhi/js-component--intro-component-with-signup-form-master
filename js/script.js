@@ -1,6 +1,7 @@
 const ctafromEl = document.querySelector(".cta-form");
+const inputEls = document.querySelectorAll("input");
 
-let emailError = {
+const emailError = {
   status: false,
   type: "",
 };
@@ -24,8 +25,10 @@ ctafromEl.addEventListener("submit", (e) => {
         if (inputEl.value === "" && emailError.type !== "EMPTY") {
           showError(inputEl, "Email cannot be empty");
           emailError.type = "EMPTY";
-        }
-        if (inputEl.value.includes("@") && emailError.type !== "WRONG-FORMAT") {
+        } else if (
+          !inputEl.value.includes("@") &&
+          emailError.type !== "WRONG-FORMAT"
+        ) {
           showError(inputEl, "Looks like this is not a email");
           emailError.type = "WRONG-FORMAT";
         }
@@ -39,4 +42,20 @@ ctafromEl.addEventListener("submit", (e) => {
         break;
     }
   });
+});
+
+ctafromEl.addEventListener("input", (e) => {
+  const inputEl = e.target;
+  if (!inputEl.classList.contains("input-error")) return;
+  const inputType = inputEl.getAttribute("id");
+  if (inputType === "email") {
+    if (emailError.type === "WRONG-FORMAT" && inputEl.value.includes("@")) {
+      hideEmailError(inputEl, emailError);
+    }
+    if (emailError.type === "EMPTY") {
+      hideEmailError(inputEl, emailError);
+    }
+  } else {
+    hideError(inputEl);
+  }
 });

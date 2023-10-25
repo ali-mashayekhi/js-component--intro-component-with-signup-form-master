@@ -12,3 +12,16 @@ function showError(inputEl, errormessage) {
   // 3) Removing placeholder
   inputEl.setAttribute("placeholder", "");
 }
+
+function hideError(inputEl) {
+  // 1) Remove error styles
+  inputEl.classList.remove("input-error");
+  // 2) Remove error message
+  inputEl.nextSibling.remove();
+}
+
+function hideEmailError(inputEl, emailErrorController) {
+  emailErrorController.type = "";
+  emailErrorController.status = false;
+  hideError(inputEl);
+}
