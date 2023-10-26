@@ -87,6 +87,9 @@ body {
   background-position: center right 2rem;
   border: 2px solid #ff7a7a;
 }
+.input-error:focus {
+  outline: 1px solid #ff7a7a;
+}
 .input-error::placeholder {
   color: #ff7a7a;
 }

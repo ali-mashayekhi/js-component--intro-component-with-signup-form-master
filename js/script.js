@@ -31,7 +31,7 @@ ctafromEl.addEventListener("submit", (e) => {
           emailError.status = true;
           emailError.type = "EMPTY";
         } else if (
-          !inputEl.value.includes("@") &&
+          !validateEmail(inputEl.value) &&
           !emailError.status &&
           emailError.type !== "WRONG-FORMAT"
         ) {
@@ -56,7 +56,7 @@ ctafromEl.addEventListener("input", (e) => {
   if (!inputEl.classList.contains("input-error")) return;
   const inputType = inputEl.getAttribute("id");
   if (inputType === "email") {
-    if (emailError.type === "WRONG-FORMAT" && inputEl.value.includes("@")) {
+    if (emailError.type === "WRONG-FORMAT" && validateEmail(inputEl.value)) {
       hideEmailError(inputEl, emailError);
     }
     if (emailError.type === "EMPTY") {
