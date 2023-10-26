@@ -22,15 +22,22 @@ ctafromEl.addEventListener("submit", (e) => {
           showError(inputEl, "Last Name cannot be empty");
         break;
       case "email":
-        if (inputEl.value === "" && emailError.type !== "EMPTY") {
+        if (
+          inputEl.value === "" &&
+          !emailError.status &&
+          emailError.type !== "EMPTY"
+        ) {
           showError(inputEl, "Email cannot be empty");
+          emailError.status = true;
           emailError.type = "EMPTY";
         } else if (
           !inputEl.value.includes("@") &&
+          !emailError.status &&
           emailError.type !== "WRONG-FORMAT"
         ) {
           showError(inputEl, "Looks like this is not a email");
           emailError.type = "WRONG-FORMAT";
+          emailError.status = true;
         }
         break;
       case "password":
