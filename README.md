@@ -12,7 +12,7 @@ This project is made by only html and css and vanilla javascript so you just nee
 <img src="design/screenshot-mobile.png" width="40%">
 
 - [Live-Demo](https://ali-intro-component-with-signup-form.netlify.app/)
-- [Solution URL](https://www.frontendmentor.io/solutions/base-apparel-coming-soon-page-rfY11gYGGI)
+- [Solution URL](https://www.frontendmentor.io/solutions/introcomponentwithsignupformmaster-cUQ0TDtHiO)
 
 ### Built with
 
