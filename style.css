@@ -144,7 +144,7 @@ body {
   color: hsl(228, 45%, 44%);
 }
 
-@media (min-width: 401px) {
+@media (min-width: 37.5em) {
   .section-intro {
     background: url(./images/bg-intro-desktop.png), #ff7a7a;
     height: 100vh;
